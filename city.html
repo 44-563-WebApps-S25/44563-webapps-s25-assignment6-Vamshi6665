@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City game by Vamshi Krishna</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>City game by Vamshi Krishna</h1>
+    <h2>Getting input</h2>
+
+<form>
+    <label for="secretsociety">Where in the world</label>
+    <input type ="password" id="secretsociety" name="San Diego" min=10 max=50 value="San Diego" > <br>
+
+    <label for="guessback">Guess the city</label>
+    <input type ="text" id="guessback" autofocus> <br>
+
+    <input type="button" onclick="checkCity()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+<p>Found: <span id="found">0</span> | Oops: <span id="oops">0</span></p>
+
+<script> 
+let oops = 0;
+let found = 0;
+
+function checkCity (){
+    let secretsoc = document.getElementById("secretsociety").value;
+    let guess = document.getElementById("guessback").value;
+    let res = document.getElementById("result");
+    let foundres = document.getElementById("found");
+    let oopsres = document.getElementById("oops");
+
+    if(guess == secretsoc){
+        res.innerHTML = "You got itch right";
+        found = 1;
+        alert("Gotcha");
+    }
+    else{
+        res.innerHTML = "Yot got itch wrong";
+        oops = 1;
+        alert("Awe");
+    }
+
+    foundres.innerHTML = found;
+    oopsres.innerHTML = oops;
+}
+</script>
+</body>
+</html>
