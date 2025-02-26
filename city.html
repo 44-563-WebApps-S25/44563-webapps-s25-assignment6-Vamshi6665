@@ -16,7 +16,7 @@
     <h1>City game by Vamshi Krishna</h1>
     <h2>Getting input</h2>
 
-<form>
+<form class="form-check">
     <label for="secretsociety">Where in the world</label>
     <input type ="password" id="secretsociety" name="San Diego" min=10 max=50 value="San Diego" > <br>
 
@@ -28,11 +28,15 @@
 
 
 <p id="result">This text will be replaced </p>
-<p>Found: <span id="found">0</span> | Oops: <span id="oops">0</span></p>
+<p class="text-success fw-bold">Found: <span id="found">0</span> | Oops: <span id="oops">0</span></p>
+<div>
+    <img id="pet_image" src="cockatoo.jpg" width="150" height="150" onclick="updatePic()">
+</div>
 
 <script> 
 let oops = 0;
 let found = 0;
+let usePic = 1;
 
 function checkCity (){
     let secretsoc = document.getElementById("secretsociety").value;
@@ -54,7 +58,36 @@ function checkCity (){
 
     foundres.innerHTML = found;
     oopsres.innerHTML = oops;
+   
+    if (oops > 2 * found) {
+        guessButton.setAttribute("onclick", "tooManyGuesses()")
+    }
+
 }
+function tooManyGuesses() {
+    alert("Sorry, too many wrong guesses.");
+}
+
+function updatePic() {
+    let image = document.getElementById("pet_image");
+
+    switch (usePic) {
+        case 1:
+            image.src = "download.jpg";
+            usePic = 2;
+            break;
+        case 2:
+            image.src = "download1.jpg";
+            usePic = 3;
+            break;
+        case 3:
+            image.src = "cockatoo.jpg";
+            usePic = 1;
+            break;
+    }
+}
+
+
 </script>
 </body>
 </html>
