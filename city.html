@@ -23,7 +23,7 @@
     <label for="guessback">Guess the city</label>
     <input type ="text" id="guessback" autofocus> <br>
 
-    <input type="button" onclick="checkCity()" value="Check the guess">
+    <input type="button" onclick="checkCity()" id="trybutton" value="Check the guess">
 </form>
 
 
@@ -44,6 +44,7 @@ function checkCity (){
     let res = document.getElementById("result");
     let foundres = document.getElementById("found");
     let oopsres = document.getElementById("oops");
+    let trybutton = document.getElementById("trybutton");
 
     if(guess == secretsoc){
         res.innerHTML = "You got itch right";
@@ -60,10 +61,11 @@ function checkCity (){
     oopsres.innerHTML = oops;
    
     if (oops > 2 * found) {
-        guessButton.setAttribute("onclick", "tooManyGuesses()")
+        trybutton.setAttribute("onclick", "tooManyGuesses()")
     }
 
 }
+
 function tooManyGuesses() {
     alert("Sorry, too many wrong guesses.");
 }
