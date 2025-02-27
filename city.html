@@ -61,12 +61,12 @@ function checkCity (){
     oopsres.innerHTML = oops;
    
     if (oops > 2 * found) {
-        trybutton.setAttribute("onclick", "tooManyGuesses()")
+        trybutton.setAttribute("onclick", "Guess()")
     }
 
 }
 
-function tooManyGuesses() {
+function Guess() {
     alert("Sorry, too many wrong guesses.");
 }
 
